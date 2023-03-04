@@ -12,6 +12,7 @@
     "@types/react-dom": "^18.0.11",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-router-dom": "^6.8.2",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },
@@ -43,8 +44,8 @@
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.54.0",
-    "eslint": "^8.35.0",
     "@typescript-eslint/parser": "^5.48.2",
+    "eslint": "^8.35.0",
     "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-prettier": "^4.2.1",
     "prettier": "2.8.4",
