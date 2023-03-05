@@ -1,14 +1,9 @@
-import { useNavigate } from 'react-router-dom';
 import styles from './NewGame.module.css';
-import { path } from '../../router/router';
 import logo from './../../logo.svg';
+import { useGame } from '../../hooks/useGame';
 
 const NewGame = () => {
-  const navigate = useNavigate();
-
-  const startGameHandler = () => {
-    navigate(path.GAME);
-  };
+  const { startGameHandler } = useGame();
 
   return (
     <section className={styles.container}>
