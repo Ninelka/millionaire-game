@@ -3,7 +3,7 @@ import styles from './styles/layout.module.css';
 
 const GameLayout = () => {
   return (
-    <main className={styles.game}>
+    <main className={styles.start}>
       <Outlet />
     </main>
   );
