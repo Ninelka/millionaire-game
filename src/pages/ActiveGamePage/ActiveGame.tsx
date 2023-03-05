@@ -21,21 +21,16 @@ const ActiveGame = () => {
   }, [questions, currentQuestion]);
 
   return (
-    <>
-      <div className={styles.question}>
-        {!currentQuestion && <p>Questions is loading...</p>}
-        {currentQuestion && (
-          <Question
-            correct_answer={currentQuestion.correct_answer}
-            question={currentQuestion.question}
-            incorrect_answers={currentQuestion.incorrect_answers}
-          />
-        )}
-      </div>
-      <div className={styles.rewards}>
-        <div>Here will be reward pyramid</div>
-      </div>
-    </>
+    <div className={styles.question}>
+      {!currentQuestion && <p>Questions is loading...</p>}
+      {currentQuestion && (
+        <Question
+          correct_answer={currentQuestion.correct_answer}
+          question={currentQuestion.question}
+          incorrect_answers={currentQuestion.incorrect_answers}
+        />
+      )}
+    </div>
   );
 };
 
