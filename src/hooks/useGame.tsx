@@ -8,21 +8,18 @@ import {
 } from '../store/gameSlice';
 import { path } from '../router/router';
 
-const url = 'https://opentdb.com/api.php?amount=5';
-
 export const useGame = () => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
+  const { questions, currentQuestionIndex, currentReward, amountOfQuestions } =
+    useAppSelector((store) => store.game);
 
+  const url = `https://opentdb.com/api.php?amount=${amountOfQuestions}`;
   async function getQuestions() {
     return await axios.get(url).then((response) => {
       dispatch(getAllQuestions(response.data.results));
     });
   }
-
-  const { questions, currentQuestionIndex, currentReward } = useAppSelector(
-    (store) => store.game
-  );
 
   const startGameHandler = () => {
     dispatch(resetGame());
