@@ -5,20 +5,23 @@ interface IGameState {
   questions: IQuestion[];
   currentQuestionIndex: number;
   currentReward: number;
-  correctAnswersCounter: number;
+  amountOfQuestions: string;
 }
 
 const initialState: IGameState = {
   questions: [],
   currentQuestionIndex: 0,
   currentReward: 0,
-  correctAnswersCounter: 0,
+  amountOfQuestions: '15',
 };
 
 export const gameSlice = createSlice({
   name: 'game',
   initialState,
   reducers: {
+    setAmountOfQuestions: (state, action: PayloadAction<string>) => {
+      state.amountOfQuestions = action.payload;
+    },
     getAllQuestions: (state, action: PayloadAction<IQuestion[]>) => {
       state.questions = action.payload;
     },
@@ -29,12 +32,15 @@ export const gameSlice = createSlice({
     resetGame: (state) => {
       state.questions = [];
       state.currentQuestionIndex = 0;
-      state.correctAnswersCounter = 0;
       state.currentReward = 0;
     },
   },
 });
 
-export const { getAllQuestions, goToNextQuestion, resetGame } =
-  gameSlice.actions;
+export const {
+  setAmountOfQuestions,
+  getAllQuestions,
+  goToNextQuestion,
+  resetGame,
+} = gameSlice.actions;
 export default gameSlice.reducer;
