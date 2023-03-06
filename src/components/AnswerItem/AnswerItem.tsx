@@ -6,11 +6,17 @@ import { Button } from '@mui/material';
 export interface IAnswerItem {
   text: string;
   onClick: () => void;
+  isCorrect?: boolean;
 }
 
-const AnswerItem: React.FC<IAnswerItem> = ({ text, onClick }) => {
+const AnswerItem: React.FC<IAnswerItem> = ({ text, onClick, isCorrect }) => {
   return (
-    <Button variant="contained" onClick={onClick} className={styles.item}>
+    <Button
+      variant="contained"
+      color={isCorrect ? 'success' : 'info'}
+      onClick={onClick}
+      className={styles.item}
+    >
       <span dangerouslySetInnerHTML={{ __html: sanitize(text) }} />
     </Button>
   );

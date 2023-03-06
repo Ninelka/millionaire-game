@@ -8,12 +8,15 @@ import {
   resetGame,
 } from '../store';
 import { path } from '../router/router';
+import { useState } from 'react';
+import { delay } from '../helpers/delay';
 
 export const useGame = () => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const { questions, currentQuestionIndex, currentReward, amountOfQuestions } =
     useAppSelector((store) => store.game);
+  const [answerClicked, setAnswerClicked] = useState<boolean>(false);
 
   const url = `https://opentdb.com/api.php?amount=${amountOfQuestions}`;
   async function getQuestions() {
@@ -32,12 +35,25 @@ export const useGame = () => {
   };
 
   const checkUserAnswer = (userAnswer: string, correctAnswer: string) => {
+    setAnswerClicked(true);
+
     if (currentQuestionIndex === questions.length - 1) {
-      navigate(path.END);
+      delay(1000, () => {
+        setAnswerClicked(false);
+        navigate(path.END);
+      });
     } else if (userAnswer === correctAnswer) {
-      dispatch(goToNextQuestion());
+      delay(1000, () => {
+        setAnswerClicked(false);
+        delay(300, () => {
+          dispatch(goToNextQuestion());
+        });
+      });
     } else {
-      navigate(path.END);
+      delay(1000, () => {
+        setAnswerClicked(false);
+        navigate(path.END);
+      });
     }
   };
 
@@ -50,5 +66,6 @@ export const useGame = () => {
     checkUserAnswer,
     currentReward,
     goToSettings,
+    answerClicked,
   };
 };

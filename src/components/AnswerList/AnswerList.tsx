@@ -10,7 +10,7 @@ interface IAnswerList {
 }
 
 const AnswerList: React.FC<IAnswerList> = ({ answers, correctAnswer }) => {
-  const { checkUserAnswer } = useGame();
+  const { checkUserAnswer, answerClicked } = useGame();
 
   const shuffledAnswers = useMemo(() => {
     return shuffleArray(answers);
@@ -23,6 +23,7 @@ const AnswerList: React.FC<IAnswerList> = ({ answers, correctAnswer }) => {
           key={item}
           text={item}
           onClick={() => checkUserAnswer(item, correctAnswer)}
+          isCorrect={answerClicked && item === correctAnswer}
         />
       ))}
     </div>
