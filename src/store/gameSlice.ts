@@ -12,7 +12,7 @@ const initialState: IGameState = {
   questions: [],
   currentQuestionIndex: 0,
   currentReward: 0,
-  amountOfQuestions: '15',
+  amountOfQuestions: '5',
 };
 
 export const gameSlice = createSlice({
