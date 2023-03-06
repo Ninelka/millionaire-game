@@ -1,11 +1,12 @@
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { useAppDispatch, useAppSelector } from '../store/store';
 import {
+  useAppDispatch,
+  useAppSelector,
   getAllQuestions,
   goToNextQuestion,
   resetGame,
-} from '../store/gameSlice';
+} from '../store';
 import { path } from '../router/router';
 
 export const useGame = () => {

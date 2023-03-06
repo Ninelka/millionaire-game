@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import styles from './ActiveGame.module.css';
 import { Question } from '../../components';
 import { useGame } from '../../hooks/useGame';
-import { useAppSelector } from '../../store/store';
+import { useAppSelector } from '../../store';
 
 const ActiveGame = () => {
   const { getQuestions } = useGame();
