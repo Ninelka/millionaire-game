@@ -27,6 +27,10 @@ export const useGame = () => {
     navigate(path.GAME);
   };
 
+  const goToSettings = () => {
+    navigate(path.START);
+  };
+
   const checkUserAnswer = (userAnswer: string, correctAnswer: string) => {
     if (currentQuestionIndex === questions.length - 1) {
       navigate(path.END);
@@ -45,5 +49,6 @@ export const useGame = () => {
     goToNextQuestion,
     checkUserAnswer,
     currentReward,
+    goToSettings,
   };
 };
