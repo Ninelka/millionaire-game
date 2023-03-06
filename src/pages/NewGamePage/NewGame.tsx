@@ -1,7 +1,13 @@
 import styles from './NewGame.module.css';
 import logo from './../../logo.svg';
 import { useGame } from '../../hooks/useGame';
-import { InputLabel, MenuItem, Select, SelectChangeEvent } from '@mui/material';
+import {
+  Button,
+  InputLabel,
+  MenuItem,
+  Select,
+  SelectChangeEvent,
+} from '@mui/material';
 import {
   useAppDispatch,
   useAppSelector,
@@ -21,7 +27,7 @@ const NewGame = () => {
     <section className={styles.container}>
       <img src={logo} className={styles.logo} alt="millionaire game logo" />
       <h1 className={styles.title}>Who wants to be a millionaire?</h1>
-      <div>
+      <div className={styles.settings}>
         <InputLabel id="select-label">Choose a number of questions:</InputLabel>
         <Select
           labelId="select-label"
@@ -36,7 +42,9 @@ const NewGame = () => {
           <MenuItem value={20}>20</MenuItem>
         </Select>
       </div>
-      <button onClick={startGameHandler}>Start</button>
+      <Button variant="contained" onClick={startGameHandler}>
+        Start
+      </Button>
     </section>
   );
 };
